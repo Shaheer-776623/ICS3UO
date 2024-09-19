@@ -1,0 +1,5 @@
+print("Welcome to Sanjay's Koala Party!")
+print("It's possible Sanjay can distribute", 12)
+print("cookies for each bowl.")
+print("Sanjay has", 6, "bowls and", 144, "cookies." )
+print("There are", (144/6), "cookies per bowl.")
