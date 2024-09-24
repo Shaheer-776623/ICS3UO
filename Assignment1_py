@@ -1,5 +1,5 @@
 import math
-length = input("\nPlease input a length for the recatangle: ")
+length = input("\nPlease input a length for the recatangle: ") 
 width = input("\nPlease input a width for a rectangle: ")
 length = int(length)
 width = int(width)
