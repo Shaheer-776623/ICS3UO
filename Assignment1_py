@@ -1,0 +1,16 @@
+import math
+length = input("\nPlease input a length for the recatangle: ")
+width = input("\nPlease input a width for a rectangle: ")
+length = int(length)
+width = int(width)
+area1 = length * width
+print ("\nThe area of the rectangle is: ", area1)
+
+radius = input("\nPlease input a radius for the circle: ")
+radius = int(radius)
+
+π = math.pi
+Area_of_Circle = π * math.pow(radius,2)
+print("The area of the circle is: ", Area_of_Circle)
+
+
