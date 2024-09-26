@@ -13,4 +13,19 @@ radius = int(radius)
 Area_of_Circle = π * math.pow(radius,2)
 print("The area of the circle is: ", Area_of_Circle)
 
+radius_for_cylinder = input("\nPlease input a radius for the cylinder: ") 
+height_for_cylinder = input("\nPlease input a height for the cylinder: ")
+
+radius_for_cylinder = int(radius_for_cylinder)
+height_for_cylinder = int(height_for_cylinder)
+
+Cylinder_Volume = π * math.pow(radius_for_cylinder, 2) * height_for_cylinder 
+
+print ("\nThe volume of the cylinder with a height of", height_for_cylinder, "and the radius of", radius_for_cylinder,"is", Cylinder_Volume)
+
+Cylinder_SA =  2 * π * radius_for_cylinder * height_for_cylinder
+Cylinder_SA += 2 * π * math.pow(radius_for_cylinder, 2)
+
+print ("\nThe volume of the cylinder with a height of", height_for_cylinder, "and the radius of", radius_for_cylinder,"is", Cylinder_SA)
+
 
