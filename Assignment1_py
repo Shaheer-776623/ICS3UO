@@ -1,3 +1,5 @@
+Shaheer Mallick - 776623 ICS3U
+
 import math #imports math functions
 
 length = input("\nPlease input a length for the rectangle: ") #asking for user input for length 
