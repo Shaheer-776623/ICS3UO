@@ -1,23 +1,21 @@
-import math
+def triangular_number(n):
+    return n * (n + 1) // 2
 
-n = int(input("Please input a value for n: "))
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
 
-print ("Counting from j = 1 to %d:\n" %n)
+# Get input from user
+n = int(input("Give me a value of n: "))
+print("Counting from j = 1 to %d:" %(n))
 
-print("j    tri    factorial")
-print("--------------------------")
+# Print the header
+print("%5s %10s %15s" %('j', 'tri', 'fact'))
 
-total = 1
-count = 1
-
-total2 = 1
-count2 = 0
-
-  
-for n in range (1, n + 1):
-  while (count < n) and (count2 <= n):
-    count = count + 1
-    total = total + count
-    count2 = count2 + 1
-    total2 = total2 * count2
-    print("%d %5d %10d" %(n - 1 , total, total2))
+# Calculate and print triangular numbers and factorials
+for j in range(1, n + 1):
+    tri = triangular_number(j)
+    fact = factorial(j)
+    print("%5d %10d %15d" %(j, tri, fact))
