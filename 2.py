@@ -8,7 +8,7 @@
 """
 
 
-def get_valid_input():
+def valid_input():
         user_input = input("Input a number of photos (or type 'done' to finish): ")
         if user_input == "done":
             print("Okay!")
