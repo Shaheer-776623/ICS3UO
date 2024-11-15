@@ -81,7 +81,7 @@ for _ in range(100):
 # find best dimensions and perimeter
     rows, columns = best_dimensions  
 # get best dimensions
-    results.append([number_of_photos, best_dimensions, best_perimeter])  
+    results.append((number_of_photos, best_dimensions, best_perimeter))
 # append result to list
     
     print(f"\nThe best layout for {number_of_photos} photos is {rows} x {columns} "
@@ -89,11 +89,11 @@ for _ in range(100):
           f"\n{results}")  
 # output best layout
 
-#print("Result in Array( Photos | Dimensions | Perimeter ")  
+print("Photos|Dimensions|Perimeter ")  
 # tells user the array format
-#for result in results: 
+for result in results: 
 # iterate through results
-    #print(result)  
+    print(result)  
 # print each result
 
 
