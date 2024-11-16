@@ -62,11 +62,10 @@ def find_best_dimensions(total_photos):
 # update best dimensions
     return best_dimensions, best_perimeter  
 # return the best dimensions and perimeter
-
-print("Welcome to the school yearbook program!")  
-# welcome message
 results = []  
 # list to store results
+print("Welcome to the school yearbook program!")  
+# welcome message
 
 for _ in range(100):  
 # allows multiple inputs
