@@ -1,30 +1,25 @@
+
 filename = "smiley_emoji_mod.xpm"
-fh = open(filename, "r") 
-colorData = fh.readline()
-colorData = colorData.strip()
+fh = open(filename, "r")
+colorData = fh.readline() # file handle must be open
+colorData.strip() 
 
 print(colorData)
 
 rows, cols, numColors = colorData.split()
 
-numColors = int(numColors)
+numColors=int(numColors)
 
-
-
-# Using arrays
-colorDefs = [[0] * 2] * numColors # declare the array
+colorDefs = []
 for i in range(numColors):
-   colorLine = fh.readline() # file handle must be open
-   colorLine.strip() 
-   sym, c, color = colorLine.split()
-   if sym == ("~"):
+    colorData = fh.readline()
+    colorData.strip()
+    [sym, c, color] = colorData.split()
+    if (sym == '~'):
         sym = " "
-   # you need to insert code here to exchange
-   # the tilde (~) for a space in the symbols!
-   colorDefs[i][0] = sym
-   colorDefs[i][1] = color
-   colorDefs[i][1] = c
+    colorDefs.append([sym, color])
 
-print(colorLine.split())
+print(colorDefs)
 
-fh.close()
+
+
