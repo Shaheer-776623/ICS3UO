@@ -57,12 +57,16 @@ def plotImage(t, cols, rows, color_dict, image_data, diameter):
         for x in range(cols):
             sym = image_data[y][x]  # Get the symbol at position (y, x)
             color = color_dict.get(sym, "gray40")  # Get the corresponding color or default to gray40
-            plotIt(t, x + x_offset, y_offset - y, diameter, color)  # Plot the point with adjusted coordinates
+            if rotate == 'y':
+                plotIt(t, -x - x_offset, -y_offset + y, diameter, color)
+            else:
+                plotIt(t, x + x_offset, y_offset - y, diameter, color)
 
 # Main execution
 filename = input("Enter the filename (e.g., smiley_emoji_mod.xpm): ")
 bg_color = input("Enter the background color (e.g., gray40): ")
 diameter = int(input("Enter the diameter of the points (e.g., 4): "))
+rotate = input("Would you like to rotate your image 180 degrees? (y/n): ")
 
 # Set up canvas size
 canvas_width = 600 #Adjust as needed
@@ -81,4 +85,3 @@ plotImage(t, cols, rows, color_dict, image_data, diameter)
 # Update the screen and finish
 turtle.update()
 turtle.done()
-
