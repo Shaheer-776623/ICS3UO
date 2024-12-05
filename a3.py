@@ -26,13 +26,14 @@ def readDataFile(filename):
     
     cols, rows, numColors = int(cols), int(rows), int(numColors)
     
-    colorDefs = {}
+    # Initialize a list to store color definitions
+    colorDefs = []
     for i in range(numColors):
         colorData = fh.readline().strip()
         sym, c, color = colorData.split()
         if sym == '~':
             sym = " "
-        colorDefs[sym] = color
+        colorDefs.append([sym, color])
     
     print(colorDefs)
     
@@ -48,7 +49,10 @@ def readDataFile(filename):
     # Return columns, actual rows, color definitions, and image data
     return cols, len(image_data), colorDefs, image_data
 
-def plotImage(t, cols, rows, color_dict, image_data, diameter):
+def plotImage(t, cols, rows, color_defs, image_data, diameter, rotate):
+    # Convert color definitions array to dictionary for plotting
+    color_dict = {item[0]: item[1] for item in color_defs}
+
     # Calculate the center of the canvas
     x_offset = -cols // 2
     y_offset = rows // 2
@@ -80,8 +84,9 @@ t.hideturtle()  # Hide the turtle icon
 
 # Read the data file and plot the image
 cols, rows, color_dict, image_data = readDataFile(filename)
-plotImage(t, cols, rows, color_dict, image_data, diameter)
+plotImage(t, cols, rows, color_dict, image_data, diameter, rotate)
 
 # Update the screen and finish
 turtle.update()
 turtle.done()
+
