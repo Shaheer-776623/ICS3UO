@@ -1,3 +1,12 @@
+"""
+    Author: Shaheer Mallick
+    Revision Date: 6 December 2024
+    Program: Making A Graphis Plotter - Turtle
+    Description: A program to read points on a graphic data file
+    and create a garaphic based on the information read.
+    Variable Dictionary: 
+  
+"""
 import turtle
 
 def plotIt(T, x, y, d, color):
@@ -49,7 +58,22 @@ def readDataFile(filename):
     # Return columns, actual rows, color definitions, and image data
     return cols, len(image_data), colorDefs, image_data
 
-def plotImage(t, cols, rows, color_defs, image_data, diameter, rotate):
+def plotImage(t, cols, rows, color_defs, image_data, diameter):
+    # Convert color definitions array to dictionary for plotting
+    color_dict = {item[0]: item[1] for item in color_defs}
+
+    # Calculate the center of the canvas
+    x_offset = -
+    cols // 2
+    y_offset = rows // 2
+
+    for y in range(len(image_data)):  # Use actual number of rows
+        for x in range(cols):
+            sym = image_data[y][x]  # Get the symbol at position (y, x)
+            color = color_dict.get(sym, "gray40")  # Get the corresponding color or default to gray40
+            plotIt(t, x + x_offset, y_offset - y, diameter, color)
+                
+def plotImage180(t, cols, rows, color_defs, image_data, diameter, rotate):
     # Convert color definitions array to dictionary for plotting
     color_dict = {item[0]: item[1] for item in color_defs}
 
@@ -61,10 +85,9 @@ def plotImage(t, cols, rows, color_defs, image_data, diameter, rotate):
         for x in range(cols):
             sym = image_data[y][x]  # Get the symbol at position (y, x)
             color = color_dict.get(sym, "gray40")  # Get the corresponding color or default to gray40
-            if rotate == 'y':
-                plotIt(t, -x - x_offset, -y_offset + y, diameter, color)
-            else:
-                plotIt(t, x + x_offset, y_offset - y, diameter, color)
+            plotIt(t, -x - x_offset, -y_offset + y, diameter, color)
+                
+
 
 # Main execution
 filename = input("Enter the filename (e.g., smiley_emoji_mod.xpm): ")
@@ -73,8 +96,8 @@ diameter = int(input("Enter the diameter of the points (e.g., 4): "))
 rotate = input("Would you like to rotate your image 180 degrees? (y/n): ")
 
 # Set up canvas size
-canvas_width = 600 #Adjust as needed
-canvas_height = 600  # Adjust as needed
+canvas_width = 1000 #Adjust as needed
+canvas_height = 1000  # Adjust as needed
 turtle.setup(canvas_width, canvas_height)
 
 turtle.bgcolor(bg_color)  # Set background color to user input
@@ -84,9 +107,14 @@ t.hideturtle()  # Hide the turtle icon
 
 # Read the data file and plot the image
 cols, rows, color_dict, image_data = readDataFile(filename)
-plotImage(t, cols, rows, color_dict, image_data, diameter, rotate)
+
+if rotate == 'y':
+    plotImage180(t, cols, rows, color_dict, image_data, diameter, rotate)    
+else:
+    plotImage(t, cols, rows, color_dict, image_data, diameter)
 
 # Update the screen and finish
 turtle.update()
 turtle.done()
+
 
