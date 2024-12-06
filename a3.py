@@ -89,10 +89,17 @@ def plotImage180(t, cols, rows, color_defs, image_data, diameter, rotate):
 
 
 # Main execution
-filename = input("Enter the filename (e.g., smiley_emoji_mod.xpm): ")
-bg_color = input("Enter the background color (e.g., gray40): ")
-diameter = int(input("Enter the diameter of the points (e.g., 4): "))
-rotate = input("Would you like to rotate your image 180 degrees? (y/n): ")
+try:
+    filename = input("Enter the filename (e.g., smiley_emoji_mod.xpm): ")
+    bg_color = input("Enter the background color (e.g., gray40): ")
+    diameter = int(input("Enter the diameter of the points (e.g., 4): "))
+    rotate = input("Would you like to rotate your image 180 degrees? (y/n): ")
+except ValueError: 
+    print("Invalid input")
+    exit(1)
+except FileNotFoundError:
+    print("File not found")
+
 
 # Set up canvas size
 canvas_width = 1000 #Adjust as needed
