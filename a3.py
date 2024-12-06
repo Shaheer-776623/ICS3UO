@@ -63,8 +63,7 @@ def plotImage(t, cols, rows, color_defs, image_data, diameter):
     color_dict = {item[0]: item[1] for item in color_defs}
 
     # Calculate the center of the canvas
-    x_offset = -
-    cols // 2
+    x_offset = -cols // 2
     y_offset = rows // 2
 
     for y in range(len(image_data)):  # Use actual number of rows
