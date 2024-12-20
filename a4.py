@@ -1,19 +1,18 @@
 """
-    Author: Shaheer Mallick
-    Revision Date: 20 December 2024
-    Program: Reading and Searching for past Wordle Data
-    Description: A program to take an input from the user for a
-    date or a word and output when it was the Wordle and what the
-    word was.
-    months: mapping month abbreviations to two-digit numbers
-    words_dates: Dictionary to store words and their corresponding dates,
-    month_number: Two-digit string representation of the month
-    day_number: Two-digit string representation of the day
-    search_word: Word input by the user to search in the database
-    search_date: Date input by the user to search for a word in the database
-    result_date: Date corresponding to the searched word
-    found_word: Word corresponding to the searched date
-
+Author: Shaheer Mallick
+Revision Date: 20 December 2024
+Program: Reading and Searching for past Wordle Data
+Description: A program to take an input from the user for a
+date or a word and output when it was the Wordle and what the
+word was.
+months: mapping month abbreviations to two-digit numbers
+words_dates: Dictionary to store words and their corresponding dates,
+month_number: Two-digit string representation of the month
+day_number: Two-digit string representation of the day
+search_word: Word input by the user to search in the database
+search_date: Date input by the user to search for a word in the database
+result_date: Date corresponding to the searched word
+found_word: Word corresponding to the searched date
 """
 # Converts month abbreviation to a two-digit number
 def month_to_number(month):
@@ -38,17 +37,22 @@ def isMatch(word, words, dates, index=0):
     return isMatch(word, words, dates, index + 1)  # Recurse through list
 
 # Reads file and stores data
-file = open("wordle.dat", "r")  # Open file
-lines = file.readlines()  # Read lines
-file.close()  # Close file
+try:
+    file = open("wordle.dat", "r")  # Open file
+    lines = file.readlines()  # Read lines
+    file.close()  # Close file
 
-dates, words = [], []  # Creates arrays
+    dates, words = [], []  # Creates arrays
 
-# Processes each line in the file
-for line in lines:
-    month, day, year, word = line.split()  # Split line
-    dates.append(merge(day, month, year))  # Add date to list
-    words.append(word)  # Add word to list
+    # Processes each line in the file
+    for line in lines:
+        month, day, year, word = line.split()  # Split line
+        dates.append(merge(day, month, year))  # Add date to list
+        words.append(word)  # Add word to list
+except FileNotFoundError:
+    print("Error: The file 'wordle.dat' was not found. Please check the file and try again.")
+    input("Press Enter to exit.")  # Prevent immediate exit
+    exit()
 
 # Main logic: interact with user
 print("Welcome to the Wordle Database!")  # Print welcome message
@@ -69,7 +73,7 @@ if choice == 'w':  # If searching for a word
     if result_date:  # If match found
         print(f"The word {search_word.upper()} was the solution to the puzzle on {result_date}.")  # Print result
     else:  # No match found
-        print(f"{search_word.upper()} was not found in the database.")  # Print message
+        print(f"The word '{search_word.upper()}' was not found in the database.")  # Print message
 elif choice == 'd':  # If searching by date
     def get_date_input():
         try:
@@ -95,12 +99,8 @@ elif choice == 'd':  # If searching by date
                 found_word = words[i]  # Assign matching word
                 break  # Exit loop
         if found_word:  # If match found
-            print(f"The word entered on {search_date} was {found_word}.")  and return def_get_choice # Print result 
-            
+            print(f"The word entered on {search_date} was {found_word}.")  # Print result
         else:  # No match found
             print(f"No word found for the date {search_date}.")  # Print message
 else:  # Invalid input
     print("Invalid input. Please enter 'w' or 'd'.")  # Print message
-
-
-
