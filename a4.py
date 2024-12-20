@@ -59,7 +59,8 @@ print("Welcome to the Wordle Database!")  # Print welcome message
 
 # Function to get valid choice input
 def get_choice():
-    choice = input("Enter 'w' if you are looking for a word, or 'd' for a word on a certain date: ").strip().lower()  # Get user choice
+    choice = input("Enter 'w' if you are looking for a word, or 'd' for a word on a certain date: ").strip().lower() 
+    # Get user choice
     if choice not in ['w', 'd']:  # Validate input
         print("Invalid input. Please enter 'w' or 'd'.")  # Print error message
         return get_choice()  # Retry
@@ -78,7 +79,8 @@ elif choice == 'd':  # If searching by date
     def get_date_input():
         try:
             year = input("Enter the year: ").strip()  # Get year
-            month = input("Enter the month (3-letter abbreviation, as in 'Jan' for 'January'): ").strip().capitalize()  # Get month
+            month = input("Enter the month (3-letter abbreviation, as in 'Jan' for 'January'): ").strip().capitalize()  
+            # Get month
             day = input("Enter the day: ").strip()  # Get day
             if len(day) == 1:  # Manually add zero if single digit
                 day = '0' + day
@@ -89,9 +91,11 @@ elif choice == 'd':  # If searching by date
     search_date = get_date_input()  # Get valid date
 
     if search_date < 20210619:  # Date too early
-        print(f"{search_date} is too early. No wordles occurred before 20210619. Enter a later date.")  # Print message
+        print(f"{search_date} is too early. No wordles occurred before 20210619. Enter a later date.")  
+        # Print message
     elif search_date > 20240421:  # Date too recent
-        print(f"{search_date} is too recent. Our records only go as late as 20240421. Please enter an earlier date.")  # Print message
+        print(f"{search_date} is too recent. The file only goes as late as 20240421. Please enter an earlier date.") 
+        # Print message
     else:  # Valid date
         found_word = None  # Initialize found word
         for i in range(len(dates)):  # Iterates through dates
