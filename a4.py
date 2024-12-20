@@ -1,12 +1,18 @@
 """
-months: mapping month abbreviations to two-digit numbers
-words_dates: Dictionary to store words and their corresponding dates,
-month_number: Two-digit string representation of the month
-day_number: Two-digit string representation of the day
-search_word: Word input by the user to search in the database
-search_date: Date input by the user to search for a word in the database
-result_date: Date corresponding to the searched word
-found_word: Word corresponding to the searched date
+    Author: Shaheer Mallick
+    Revision Date: 20 December 2024
+    Program: Reading and Searching for past Wordle Data
+    Description: A program to take an input from the user for a
+    date or a word and output when it was the Wordle and what the
+    word was.
+    months: mapping month abbreviations to two-digit numbers
+    words_dates: Dictionary to store words and their corresponding dates,
+    month_number: Two-digit string representation of the month
+    day_number: Two-digit string representation of the day
+    search_word: Word input by the user to search in the database
+    search_date: Date input by the user to search for a word in the database
+    result_date: Date corresponding to the searched word
+    found_word: Word corresponding to the searched date
 
 """
 # Converts month abbreviation to a two-digit number
@@ -18,7 +24,7 @@ def month_to_number(month):
 
 # Merges day, month, and year into a single integer
 def merge(day, month, year):
-    if len(day) == 1:  # Manually pad with zero if single digit
+    if len(day) == 1:  # Manually add zero if single digit
         day = '0' + day
     month_number = month_to_number(month)  # Convert month
     return int(year + month_number + day)  # Combine into number
@@ -70,7 +76,7 @@ elif choice == 'd':  # If searching by date
             year = input("Enter the year: ").strip()  # Get year
             month = input("Enter the month (3-letter abbreviation, as in 'Jan' for 'January'): ").strip().capitalize()  # Get month
             day = input("Enter the day: ").strip()  # Get day
-            if len(day) == 1:  # Manually pad with zero if single digit
+            if len(day) == 1:  # Manually add zero if single digit
                 day = '0' + day
             return merge(day, month, year)  # Merge date components
         except (ValueError, KeyError):  # Handle invalid input
@@ -89,7 +95,8 @@ elif choice == 'd':  # If searching by date
                 found_word = words[i]  # Assign matching word
                 break  # Exit loop
         if found_word:  # If match found
-            print(f"The word entered on {search_date} was {found_word}.")  # Print result
+            print(f"The word entered on {search_date} was {found_word}.")  and return def_get_choice # Print result 
+            
         else:  # No match found
             print(f"No word found for the date {search_date}.")  # Print message
 else:  # Invalid input
