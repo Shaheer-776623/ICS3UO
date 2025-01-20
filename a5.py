@@ -4,7 +4,7 @@ Student Number: 776623
 Revision date : 20 Jan 2025
 Program : Credit Card Report
 Description : Report of all credit cards in the customer database that have expired.
-VARIABLE DICTIONARY :
+Variable Dictionary:
     filename: str - Name of the file
     fh: file object - File handle
     names: list - List of names (first and last)
@@ -164,6 +164,11 @@ for i in range(len(expiry_dates)):
     output.write("\n%-30s %-15s %-20s %-10s %-15s" % (names[i], cc_types[i], cc_nums[i], expiry_dates[i], expired_text))
 # Close the output file
 output.close()
+
+import os
+
+os.startfile('output.txt) 
+# Automatically opens the file
 
 
 
