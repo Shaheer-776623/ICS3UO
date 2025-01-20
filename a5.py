@@ -167,7 +167,7 @@ for i in range(len(expiry_dates)):
     print(f"%-35s %-15s %-20s %-10s %-15s" % (names[i], cc_types[i], cc_nums[i], expiry_dates[i], expired_text))
 
     # Writes the formatted output to the file
-    output.write(f"\n%-30s %-15s %-20s %-10s %-15s" % (names[i], cc_types[i], cc_nums[i], expiry_dates[i], expired_text))
+    output.write(f"\n%-35s %-15s %-20s %-10s %-15s" % (names[i], cc_types[i], cc_nums[i], expiry_dates[i], expired_text))
 
 # Closes the output file after writing all data
 output.close()
