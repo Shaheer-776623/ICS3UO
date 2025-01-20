@@ -156,7 +156,7 @@ for i in range(len(expiration_dates)):
     print(f"%-35s %-15s %-20s %-10s %-15s" % (user_names[i], card_types[i], card_numbers[i], expiration_dates[i], status_text))
 
     # Writes the formatted output to the file
-    result_file.write(f"\n%-30s %-15s %-20s %-10s %-15s" % (user_names[i], card_types[i], card_numbers[i], expiration_dates[i], status_text))
+    result_file.write(f"\n%-35s %-15s %-20s %-10s %-15s" % (user_names[i], card_types[i], card_numbers[i], expiration_dates[i], status_text))
 
 # Closes the output file after writing all data
 result_file.close()
