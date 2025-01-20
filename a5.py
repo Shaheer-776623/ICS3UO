@@ -5,16 +5,16 @@ Revision date : 20 Jan 2025
 Program : Credit Card Report
 Description : Report of all credit cards in the customer database that have expired.
 Variable Dictionary:
-    file_name: str - Name of the file
-    file_handle: file object - File handle
-    user_names: list - List of names (first and last)
-    card_numbers: list - List of credit card numbers
-    card_types: list - List of credit card types
-    expiration_dates: list - List of expiry dates
-    data_lines: list - List of all the lines in file
-    header_line: str - First line of the file (to be removed from data_lines)
-    result_file: file object - File handle for the output file
-    status_text: str - Text to display when expired
+    file_name: Name of the file
+    file_handle: File handle
+    user_names: List of names from the file
+    card_numbers: List of credit card numbers from the file
+    card_types: list of credit card types
+    expiration_dates: List of expiry dates
+    data_lines: list of all the lines in file
+    header_line: first line of the file
+    result_file: file handle for the output file
+    status_text: text to display when expired
 """
 
 def merge_sort(array1, array2, array3, array4, left, right):
