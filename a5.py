@@ -5,16 +5,16 @@ Revision date : 20 Jan 2025
 Program : Credit Card Report
 Description : Report of all credit cards in the customer database that have expired.
 Variable Dictionary:
-    file_name: Name of the file
-    file_handle: File handle
-    user_names: List of names from the file
-    card_numbers: List of credit card numbers from the file
-    card_types: list of credit card types
-    expiration_dates: List of expiry dates
-    data_lines: list of all the lines in file
-    header_line: first line of the file
-    result_file: file handle for the output file
-    status_text: text to display when expired
+    file_name: A variable to represent the name of the file
+    file_handle: Represents file handle
+    header_line: The first line of the file
+    user_names: List of the names from the file both first and last.
+    card_numbers: List of credit card numbers from each person.
+    card_types: List of credit card types from each person.
+    expiration_dates: List of expiry dates of the credit cards.
+    data_lines: List of all the lines in the file
+    result_file: File handle for the output file with the analysis.
+    status_text: The text displayed in the console to determine card status.
 """
 
 def merge_sort(array1, array2, array3, array4, left, right):
@@ -100,7 +100,11 @@ try:
     file_name = "data.dat"  # Assigns file_name to the name of the input file
     file_handle = open(file_name, 'r')  # Opens the file for reading
 except FileNotFoundError:
-    print("Error: File not found.")
+    print("File was not found.")
+    exit()
+
+except OSError:
+    print("Error: Operating system error.")
     exit()
 
 # Initialize lists to store data from the file
@@ -151,13 +155,13 @@ for i in range(len(expiration_dates)):
 
     # Determines the status of the credit card (expired or needs renewal)
     status_text = "EXPIRED" if expiration_dates[i] < 202501 else "RENEW IMMEDIATELY"
-
     # Prints the formatted output to the console
-    print(f"%-35s %-15s %-20s %-10s %-15s" % (user_names[i], card_types[i], card_numbers[i], expiration_dates[i], status_text))
-
+    print(f"%-35s %-15s %-20s %-10s %-15s"
+          % (user_names[i], card_types[i], card_numbers[i], expiration_dates[i], status_text))
     # Writes the formatted output to the file
-    result_file.write(f"\n%-35s %-15s %-20s %-10s %-15s" % (user_names[i], card_types[i], card_numbers[i], expiration_dates[i], status_text))
-
+    result_file.write(f"%-35s %-15s %-20s %-10s %-15s"
+                      % (user_names[i], card_types[i], card_numbers[i], expiration_dates[i], status_text))
+    result_file.write("\n")
 # Closes the output file after writing all data
 result_file.close()
 
